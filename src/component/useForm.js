@@ -30,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
     },
 
     appMain:{
-      margin:theme.spacing(2),
-      paddingTop:theme.spacing(12),
-      paddingLeft:'250px',
-      minHeight:'800px',
-      minWidth:'400px',
+      margin:'auto',
+      paddingTop:theme.spacing(5),
+      // paddingLeft:'250px',
+      // height:'800px',
+      width:'65%',
       [theme.breakpoints.down("xs")]:{
         paddingLeft: '50px',
       },

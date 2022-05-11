@@ -75,11 +75,11 @@ export default function Connect() {
     
     e.preventDefault();
   
-    await axios.post(ApiUrl+'login',log).then(res => {
-      localStorage.setItem("key",res.data.id);
-      sessionStorage.setItem("key",res.data.id)
-      history.push(`/Acceuil/admin/${res.data.id}`)
-    }).catch(err => console.log(err));
+    // await axios.post(ApiUrl+'login',log).then(res => {
+      // localStorage.setItem("key",res.data.id);
+      // sessionStorage.setItem("key",res.data.id)
+      history.push(`/Acceuil/admin/1`)
+    // }).catch(err => console.log(err));
 
   };
 

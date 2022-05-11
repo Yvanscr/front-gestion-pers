@@ -58,7 +58,7 @@ export default function Profil(){
   const { id } = useParams();
 
   const getProfil = async () => {
-    await axios.get(ApiUrl+`profil/${id}`)
+    await axios.get(ApiUrl+`profil/378064DA`)
     .then(res => {
       setItems(res.data);
     });
@@ -124,7 +124,7 @@ export default function Profil(){
   return(
     <MenuProfil>
       <Card>
-        <CardHeader title="> Profil"></CardHeader>
+        <CardHeader title="Profil"></CardHeader>
         <CardContent>
           <div>
             <Grid container>

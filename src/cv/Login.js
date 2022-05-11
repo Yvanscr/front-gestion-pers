@@ -76,9 +76,9 @@ export default function Login() {
     e.preventDefault();
   
     await axios.post(ApiUrl+'profil/login',log).then(res => {
-      localStorage.setItem("key",res.data.id);
-      sessionStorage.setItem("key",res.data.id)
-      history.push(`/Acceuil/${res.data.id}`)
+      // localStorage.setItem("key",res.data.id);
+      // sessionStorage.setItem("key",res.data.id)
+      history.push(`/Acceuil/378064DA`)
     }).catch(err => console.log(err));
 
   };

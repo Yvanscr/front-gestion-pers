@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography, Link, AppBar,Toolbar } from '@material-ui/core';
-
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import logo from './../logo.png';
 
 const id = localStorage.getItem('key');
@@ -8,7 +8,10 @@ const id = localStorage.getItem('key');
 const useStyles = makeStyles((theme) => ({
   toolbar:{
     display:'flex',
-    justifyContent:'space-between'
+    height:'15px',
+    // justifyContent:'left',
+    paddingLeft:'20px',
+    backgroundColor: 'green'
   },
   logoLg:{
     alignItems:'center',
@@ -26,9 +29,17 @@ const useStyles = makeStyles((theme) => ({
   icon:{
     display:'flex',
     alignItems:'center',
+    marginLeft: theme.spacing(50)
   },
   icons:{
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2)
+  },
+  account:{
+    position:'absolute',
+    right: '10px',
+    alignSelf:'right',
+
   }
 }));
 
@@ -39,7 +50,7 @@ export default function Header() {
     <AppBar >
       <Toolbar className={classes.toolbar}>
         
-          <img src={logo}  height="90px" width="100px" alt=""/>
+          <img src={logo}  height="60px" width="90px" style={{ borderRadius: 10 }}  alt="" />
         
         <div className={classes.icon}>
           <Link
@@ -82,7 +93,11 @@ export default function Header() {
                   >
           <Typography variant="h6" className={classes.logoLg} >Rapport</Typography>
           </Link>
+          
         </div>
+        <AccountCircle
+          className={classes.account}
+          />
       </Toolbar>
     </AppBar>
     
