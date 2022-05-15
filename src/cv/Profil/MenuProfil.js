@@ -18,7 +18,7 @@ export default function MenuProfil(props) {
  
 
   return (
-    <div>
+    <div >
 
       <Menu/>
       <SideMenu sections={sections}/>

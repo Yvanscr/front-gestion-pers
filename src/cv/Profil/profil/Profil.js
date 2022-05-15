@@ -11,7 +11,7 @@ import {
   DialogTitle,
   Button,
   TextField,
-  Fab,
+  Fab,styled,Paper,Box,Avatar,Typography
 } from '@material-ui/core'
 import React, { useState, useEffect } from 'react';
 import { useHistory,useParams } from 'react-router-dom';
@@ -43,6 +43,16 @@ const useStyles = makeStyles((theme) => ({
     left: 'auto',
     bottom: 56,
     right: '20',
+  },
+  profilLayout:{
+    marginLeft: theme.spacing(10),
+    justifyContent:'left',
+    alignItems:'left'
+  },
+  bottomLayout:{
+    marginTop: theme.spacing(5),
+    flexDirection: 'row',
+    marginBottom: theme.spacing(5)
   }
  
 }));
@@ -121,12 +131,20 @@ export default function Profil(){
     setCamOpen(false);
   };
 
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    borderRadius: 10
+  }));
+
   return(
     <MenuProfil>
-      <Card>
-        <CardHeader title="Profil"></CardHeader>
-        <CardContent>
+      <div>
           <div>
+         
             <Grid container>
                         <Grid item xs={6} sm={3} md={2}>
                           <img src={ApiUrl+'assets/uploads/'+items.photo} className={classes.image} alt="" />
@@ -134,102 +152,58 @@ export default function Profil(){
                             <CameraEnhance />
                           </Fab>
                         </Grid>
-                        <Grid item xs={6} sm={3} md={2}>
-                          <Paragraphe
-                            label="Nom"
-                            valeur={items.nom}
-                          />
-                          <Paragraphe
-                            label="Prénom"
-                            valeur={items.prenom}
-                          />
-                          <Paragraphe
-                            label="Date de naissance"
-                            valeur={items.datenaiss}
-                          />
-                          <Paragraphe
-                            label="Statut martial"
-                            valeur={items.statm}
-                          />
-                      </Grid>
-                      <Grid item xs={6} sm={2} md={2}>
-                        <Paragraphe
-                          label="Nombre d'enfant"
-                          valeur={items.nbrenfants}
-                        />
-                        <Paragraphe
-                          label="Adresse"
-                          valeur={items.adresse}
-                        />
-                        <Paragraphe
-                          label="Code postale"
-                          valeur={items.codep}
-                        />
-                        <Paragraphe
-                          label="Nationnalité"
-                          valeur={items.nation}
-                        />              
-                      </Grid>
-                      <Grid item xs={6} sm={3} md={3}>
-                        <Paragraphe
-                          label="Permis de conduire"
-                          valeur={items.pconduit}
-                        />
-                        <Paragraphe
-                          label="Téléphone"
-                          valeur={items.tel}
-                        />
-                        <Paragraphe
-                          label="Adresse éléctronique"
-                          valeur={items.email}
-                        />
-                        <Paragraphe
-                          label="Statut"
-                          valeur={items.etat}
-                        />
-                      </Grid>
-                      <Grid item xs={6} sm={2} md={3}>
-                        <Paragraphe
-                          label="Catégorie"
-                          valeur={items.categ}
-                        />
-                        <Paragraphe
-                          label="Corps"
-                          valeur={items.corps}
-                        />
-                        <Paragraphe
-                          label="Grade"
-                          valeur={items.grade}
-                        /> 
-                        <Paragraphe
-                          label="Indice"
-                          valeur={items.indice}
-                        />                       
-                      </Grid>
+                        <Grid item xs={4}  className={classes.profilLayout}>
+                          <Item>
+                           <Typography variant="h4" align= "center" gutterBottom component="div">
+                              Information personnel
+                            </Typography>
+                            <Paragraphe variant='inherit' valeur={items.nom+' '+items.prenom} />
+                            <Paragraphe variant='inherit' valeur={"Spécialité: "+items.datenaiss} />
+                            <Paragraphe variant='inherit' valeur={"Date de naissance: "+items.datenaiss} />
+                            <Paragraphe variant='inherit' valeur={"Situation martial: "+items.statm} />
+                            <Paragraphe variant='inherit' valeur={"Nationnalité: "+items.nation} />
+                          </Item>
+                        </Grid>
+
+                        <Grid item xs={4}  className={classes.profilLayout}>
+                          <Item>
+                            <Typography variant="h4" align= "center" gutterBottom component="div">
+                              Adresse
+                            </Typography>
+                            <Paragraphe variant='inherit' valeur={items.nom+' '+items.prenom} />
+                            <Paragraphe variant='inherit' valeur={"Adresse: "+items.adresse} />
+                            <Paragraphe variant='inherit' valeur={"Code postal: "+items.code} />
+                            <Paragraphe variant='inherit' valeur={"Telephone: "+items.tel} />
+                            <Paragraphe variant='inherit' valeur={"Etat: "+items.etat} />
+                            <Paragraphe variant='inherit' valeur={"Email: "+items.etat} />
+                          </Item>
+                        </Grid>
                     </Grid>
-                    <Grid container>
-                      <Grid item xs={2} >
-                        
-                      </Grid>  
-                      <Grid item xs={10}>  
-                        <Paragraphe
-                          label="Description"
-                          valeur={items.description}
-                        />
-                      </Grid>
+                    <Grid>
+                      <Grid item xs={30}  className={classes.bottomLayout} direction = "row">
+                          <Item>
+                           <Typography variant="h4" align= "center" gutterBottom component="div">
+                              Informations professionnels
+                            </Typography>
+                            <Paragraphe variant='inherit' valeur={"Corps: "+items.corps} />
+                            <Paragraphe variant='inherit' valeur={"Grade: "+items.grade} />
+                            <Paragraphe variant='inherit' valeur={"Categorie: "+items.categ} />
+                            <Paragraphe variant='inherit' valeur={"Indice: "+items.indice} />
+                          </Item>
+                        </Grid>
                     </Grid>
               </div>
-            
+
             <Button color="primary" variant="contained" onClick={onDialogOpen}>
-                          Modifier
-                        </Button>
-        </CardContent>
-      </Card>
+                  Modifier
+            </Button>
+       </div>
+      
       <Dialog open={dialogOpen} onClose={onDialogClose}>
         <DialogTitle>Modification du profil</DialogTitle>
         <DialogContent>
         <form >
-              <Grid item xs={12}>
+              <Grid item xs={30}>
                 
                 <TextField
                   label="Nom"
