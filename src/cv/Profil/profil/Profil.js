@@ -170,7 +170,6 @@ export default function Profil(){
                             <Typography variant="h4" align= "center" gutterBottom component="div">
                               Adresse
                             </Typography>
-                            <Paragraphe variant='inherit' valeur={items.nom+' '+items.prenom} />
                             <Paragraphe variant='inherit' valeur={"Adresse: "+items.adresse} />
                             <Paragraphe variant='inherit' valeur={"Code postal: "+items.code} />
                             <Paragraphe variant='inherit' valeur={"Telephone: "+items.tel} />
